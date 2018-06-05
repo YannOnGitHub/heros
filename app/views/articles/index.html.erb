@@ -1,0 +1,38 @@
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Blog</a>
+    </div>
+    </div>
+</nav>
+
+
+<div class="text-center">
+<h1>Blog</h1>
+<%= link_to "New article", new_article_path, class: "btn btn-success" %>
+</div>
+
+<div class="container">
+<% @articles.each do |article| %>
+
+<div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-between">
+
+  <div>
+
+  <h2> <%= article.title %> </h2>
+  <p><%= "*" * article.stars %></p>
+
+  </div>
+
+<div>
+  <%= article.created_at.strftime("%D") %>
+  <br>
+  <%= link_to "More details", article_path(article.id), class:"btn btn-primary" %>
+</div>
+
+</div>
+
+<% end %>
+</div>
+
+
